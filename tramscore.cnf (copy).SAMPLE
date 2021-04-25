@@ -1,0 +1,24 @@
+{
+    "database": {
+        "host": "localhost",
+        "port": "5432",
+        "user": "tramsuser",
+        "password": "P@55w0rd",
+        "dbname": "test_db"
+    },
+
+    "database_type": "postgresql"
+}
+
+
+
+{
+    "database": {
+        "host": "127.0.0.1",
+        "user": "root",
+        "passwd": "P@55w0rd",
+        "db": "test_db"
+    },
+
+    "database_type": "mysql"
+}
