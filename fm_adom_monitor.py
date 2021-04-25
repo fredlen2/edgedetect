@@ -46,10 +46,8 @@ class RecognizeStream(Tramscore):
             "database": {
                 "host": "127.0.0.1",
                 "user": "root",
-                # "password": "testP@55w0rd",
-                # "database": "test_trams_db"
-                "passwd": "testP@55w0rd",
-                "db": "test_trams_db"
+                "passwd": "test",
+                "db": "test_db"
             },
 
             "database_type": "mysql"
@@ -63,8 +61,8 @@ class RecognizeStream(Tramscore):
     #         "database": {
     #             "host": "127.0.0.1",
     #             "user": "root",
-    #             "passwd": "testP@55w0rd",
-    #             "db": "test_trams_db"
+    #             "passwd": "test",
+    #             "db": "test_db"
     #         },
     #
     #         "database_type": "mysql"
@@ -211,12 +209,12 @@ class RecognizeStream(Tramscore):
         sender = sender  # Sender Name
         recipient = phone  # Recipient MSISDN
         message = msg  # Message to Send
-        apikey = "a0b195e7cba5b446eddaad70b7ef8ad4"  # api provided by Mtech Communications
+        apikey = "jkkkkktest"  # api key from provider
 
         # Find md5 hash for the first three parameters
         extra = hashlib.md5((sender + recipient + message).encode("utf-8")).hexdigest()
 
-        url = "http://176.58.113.107/send.php"
+        url = "http://ip_here/send.php"
         prep_data = {'from': sender, 'to': recipient, 'message': message, 'apikey': apikey, 'extra': extra}
 
         response = requests.post(url, data=prep_data)
@@ -225,7 +223,7 @@ class RecognizeStream(Tramscore):
     def get_campaign_handler_single(self, apikey, eid):
         apikey = apikey  # API Key provided by Adroll
         eid = eid  # Campaign eid from Adroll
-        auth = HTTPBasicAuth('equansah@mtechcomm.com', 'Birthday2010@')
+        auth = HTTPBasicAuth('username', 'password')
 
         url = "https://services.adroll.com/activate/api/v2/campaign?apikey=%s&eid=%s" % (apikey, eid)
         response = requests.get(url, auth=auth)
@@ -237,7 +235,7 @@ class RecognizeStream(Tramscore):
         apikey = apikey  # API Key provided by Adroll
         eid = eid  # Campaign EID from Adroll
 
-        auth = HTTPBasicAuth('equansah@mtechcomm.com', 'Birthday2010@')
+        auth = HTTPBasicAuth('username', 'password')
 
         url = "https://services.adroll.com/activate/api/v2/campaign?apikey=%s&eid=%s" % (apikey, eid)
         prep_data = {'status': 'paused'}
@@ -251,7 +249,7 @@ class RecognizeStream(Tramscore):
         apikey = apikey  # API Key provided by Adroll
         eid = eid  # Campaign EID from Adroll
 
-        auth = HTTPBasicAuth('equansah@mtechcomm.com', 'Birthday2010@')
+        auth = HTTPBasicAuth('username', 'password')
 
         url = "https://services.adroll.com/activate/api/v2/campaign?apikey=%s&eid=%s" % (apikey, eid)
         prep_data = {'status': 'live'}
